@@ -9,18 +9,14 @@ const routeGuard = require('./../middleware/route-guard');
 
 router.get('/:userId', (req, res, next) => {
   const { userId } = req.params;
-  console.log(userId);
   User.findById(userId).then(data => {
-    console.log(data);
     res.render('profile', data);
   });
 });
 
 router.get('/:userId/edit', (req, res, next) => {
   const { userId } = req.params;
-  //console.log(userId);
   User.findById(userId).then(user => {
-    //console.log(data);
     res.render('profile-edit', user);
   });
 });
@@ -29,8 +25,6 @@ router.get('/:userId/edit', (req, res, next) => {
 
 router.post('/:userId/edit', uploader.single('photo'), (req, res, next) => {
   const userId = req.params.userId;
-  //console.log(req.file);
-  // const userId = req.user._id;
   const { name, email, campus } = req.body;
 
   let profilePicture;

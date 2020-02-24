@@ -1,10 +1,13 @@
 <h1>Profile</h1>
-<p>This page should only be accessible to authenticated users.</p>
 <img src= {{profilePicture}} alt="profile picture">
-<span><a href="#">Edit profile picture</a></span>
 <br>
 <span><strong>Name</strong>: {{name}}</span>
 <br />
 <span><strong>Email</strong>: {{email}}</span>
 <br>
-<span><strong>Games</strong>:<a href="#"> Add your game</a></span>
+<span><strong>Campus</strong>: {{campus}}</span>
+<br>
+<span><strong>Games</strong>: </span>
+<br>
+<a href="/profile/{{user._id}}/edit">Edit profile</a>
+

@@ -18,7 +18,8 @@ const schema = new mongoose.Schema({
   },
   campus: {
     type: String,
-    enum: ['Amsterdam', 'Lisbon', 'Madrid', 'Miami']
+    enum: ['Amsterdam', 'Lisbon', 'Madrid', 'Miami'],
+    required: true
   },
   githubToken: {
     type: String

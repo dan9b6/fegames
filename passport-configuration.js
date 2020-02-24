@@ -83,12 +83,10 @@ passport.use(
       scope: 'user:email'
     },
     (accessToken, refreshToken, profile, callback) => {
-      const {
-        displayName: name,
-        emails,
-        photos: [{ value: photo } = {}] = []
-      } = profile;
+      const { displayName: name, emails, photos: [{ value: photo } = {}] = [] } = profile;
       const primaryEmail = emails.find(email => email.primary).value;
+      const primaryName = profile.username;
+      console.log(profile);
       User.findOne({ email: primaryEmail })
         .then(user => {
           if (user) {
@@ -96,8 +94,7 @@ passport.use(
           } else {
             return User.create({
               email: primaryEmail,
-              photo,
-              name,
+              name: primaryName,
               githubToken: accessToken
             });
           }

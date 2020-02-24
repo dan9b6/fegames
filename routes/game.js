@@ -8,20 +8,16 @@ const Game = require('../models/game');
 const routeGuard = require('./../middleware/route-guard');
 const uploader = require('./../middleware/upload');
 
-router.get('/create', routeGuard, (req,res,next) => {
+router.get('/create', routeGuard, (req, res, next) => {
   res.render('create-game');
 });
 
-
-
 router.post('/create', uploader.single('photo'), (req, res, next) => {
-  
-  const userId = req.user._id
-  
+  const userId = req.user._id;
+
   const { title, description, tagline } = req.body;
   const author = userId;
   const { url } = req.file;
-
 
   Game.create({
     title,
@@ -36,8 +32,7 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
     .catch(error => {
       next(error);
     });
-}
-);
+});
 
 //const uploader = require('./../multer-configure.js');
 /*

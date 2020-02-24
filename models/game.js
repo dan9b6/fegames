@@ -19,15 +19,13 @@ const schemaGame = new mongoose.Schema(
       ref: 'User',
       required: true
     },
-    photo: 
-      {
-        type: String
-      },
-    tagline:
-    {
+    photo: {
+      type: String
+    },
+    tagline: {
       type: String,
       maxlength: 70
-    } 
+    }
   },
   {
     timestamps: {
@@ -36,5 +34,5 @@ const schemaGame = new mongoose.Schema(
     }
   }
 );
-const Model = mongoose.model('Post', schemaGame);
-module.exports = Model;
+
+module.exports = mongoose.model('Post', schemaGame);

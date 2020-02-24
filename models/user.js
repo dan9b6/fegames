@@ -18,11 +18,15 @@ const schema = new mongoose.Schema({
   },
   campus: {
     type: String,
-    enum: ['Amsterdam', 'Lisbon', 'Madrid', 'Miami'],
-    required: true
+    enum: ['Amsterdam', 'Lisbon', 'Madrid', 'Miami']
   },
   githubToken: {
     type: String
+  },
+  profilePicture: {
+    type: String,
+    default:
+      'https://res.cloudinary.com/dsys9z0jc/image/upload/v1582547999/fegames/avatar_hynht3.jpg'
   }
 });
 

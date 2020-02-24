@@ -19,7 +19,7 @@ const schemaGame = new mongoose.Schema(
       ref: 'User',
       required: true
     },
-    photos: 
+    photo: 
       {
         type: String
       },

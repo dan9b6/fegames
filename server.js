@@ -37,6 +37,7 @@ const onError = error => {
     process.exit(1);
   } else {
     console.error('There was an unknown error.');
+    console.log(error)
     debug(error);
     throw error;
   }

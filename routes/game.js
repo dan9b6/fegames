@@ -15,22 +15,23 @@ router.get('/create', routeGuard, (req,res,next) => {
 
 
 router.post('/create', uploader.single('photo'), (req, res, next) => {
-   
+  
   const userId = req.user._id
   
-  const { title, description, photo, tagline } = req.body;
+  const { title, description, tagline } = req.body;
   const author = userId;
+  const { url } = req.file;
 
-  console.log (req.body)
+
   Game.create({
     title,
     description,
-    photo,
+    photo: url,
     author,
     tagline
   })
     .then(post => {
-      res.redirect(`/profile`);
+      res.redirect(`/profile/${userId}`);
     })
     .catch(error => {
       next(error);

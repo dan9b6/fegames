@@ -27,7 +27,8 @@ const schemaGame = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ['Game Project','App Project','Final Project']
+      enum: ['Game Project','App Project','Final Project'],
+      required: true
     },
     tagline: {
       type: String,

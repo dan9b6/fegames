@@ -8,10 +8,12 @@ const Game = require('../models/game');
 const routeGuard = require('./../middleware/route-guard');
 const uploader = require('./../middleware/upload');
 
+
+
+//routers for create a project
 router.get('/create', routeGuard, (req,res,next) => {
   res.render('create-game');
 });
-
 
 
 router.post('/create', uploader.single('photo'), (req, res, next) => {
@@ -41,6 +43,7 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
 }
 );
 
+//routers for edit a project
 router.get('/:gameId/edit', routeGuard, (req,res,next) => {
   const gameId = req.params.gameId
   Game.findById(gameId)
@@ -78,6 +81,7 @@ router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
 });
 
 
+//router for delete a project
 router.post('/:gameId/delete', (req, res, next) => {
 
   const userId = req.user._id
@@ -92,6 +96,21 @@ router.post('/:gameId/delete', (req, res, next) => {
       next(error);
     });
 });
+
+
+//routers for show the game
+router.get('/:gameId', (req, res, next) => {
+  const gameId = req.params.gameId;
+  //This line 👆🏼 is equal to typing  const { userId } = req.params;
+  let gameInfo;
+  Game.findById(gameId)
+    .then(data => {
+      gameInfo = data;
+      res.render('game', { gameInfo, data });
+    })
+    .catch(error => console.log(error));
+});
+
 
 
 module.exports = router;

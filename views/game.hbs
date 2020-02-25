@@ -1,0 +1,21 @@
+<h1>Profile</h1>
+<img src= {{gameInfo.photo}} alt="profile picture">
+<br>
+<span><strong>Project Title</strong>: {{gameInfo.title}}</span>
+<br />
+<span><strong>Category</strong>: {{gameInfo.category}}</span>
+<br>
+<span><strong>Description</strong>: {{gameInfo.description}}</span>
+<br>
+<span><strong>Netlify Link</strong>: {{gameInfo.netlify}}</span>
+<br>
+<span><strong>Tagline</strong>: {{gameInfo.tagline}}</span>
+<br>
+
+<a href="/game/{{gameInfo._id}}/edit">Edit Project</a>
+
+{{#each games}}
+<ul>
+  <li>{{ title }}</li>
+</ul>
+{{/each}}

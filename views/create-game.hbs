@@ -1,12 +1,26 @@
-<h1>Publish a New Game!</h1>
+<h1>Publish a New Project!</h1>
 <form method="POST" enctype="multipart/form-data">
-  <label for="input-title">Game Title</label>
+  
+  <select name="project" id="input-project">
+    <option value="Game Project">Game Project</option>
+    <option value="App Project">App Project</option>
+    <option value="Last Project">Last Project</option>
+  </select>
+  
+  <label for="input-title">Project Title</label>
   <input type="text" name="title" id="input-title" placeholder="Input Title" maxlength="80"/>
-  <label for="input-description">Post Content</label>
+  
+  <label for="input-description">Project Description</label>
   <textarea name="description" id="input-description" placeholder="Write Game Description Here..." maxlength="500"></textarea>
+  
   <label for="input-photo">Photo</label>
   <input type="file" name="photo" id="input-photo" accept="image/*"/>
-  <label for="input-tagline">Game Tagline</label>
+
+  <label for="input-netlfiy">Netlify Link</label>
+  <input type="text" name="netlfiy" id="input-netlify" placeholder="Input Netlify Link"/>
+  
+  <label for="input-tagline">Project Tagline</label>
   <input type="text" name="tagline" id="input-tagline" placeholder="Input a Game Tagline" maxlength="80"/>
-  <button>Publish this New Game</button>
+  
+  <button>Publish this New Project!</button>
 </form>

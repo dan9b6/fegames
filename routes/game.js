@@ -18,7 +18,7 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
   
   const userId = req.user._id
   
-  const { title, description, tagline } = req.body;
+  const { title, description, tagline, category, netlify } = req.body;
   const author = userId;
   const { url } = req.file;
 
@@ -28,6 +28,8 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
     description,
     photo: url,
     author,
+    category,
+    netlify,
     tagline
   })
     .then(post => {
@@ -52,8 +54,8 @@ router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
   
   const userId = req.user._id
   const gameId = req.params.gameId
-  const { title, description, tagline } = req.body;
-  console.log(title, description, tagline)
+  const { title, description, tagline, category, netlify } = req.body;
+ 
   let profilePicture;
   if (req.file) {
     profilePicture = req.file.url;
@@ -63,6 +65,8 @@ router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
     ...(title ? { title } : {}),
     ...(description ? { description } : {}),
     ...(tagline ? { tagline } : {}),
+    ...(category ? { category } : {}),
+    ...(netlify ? { netlify } : {}),
     ...(profilePicture ? { profilePicture } : {})
   })
     .then(() => {

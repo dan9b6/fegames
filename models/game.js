@@ -22,6 +22,13 @@ const schemaGame = new mongoose.Schema(
     photo: {
       type: String
     },
+    netlify: {
+      type: String
+    },
+    category: {
+      type: String,
+      enum: ['Game Project','App Project','Final Project']
+    },
     tagline: {
       type: String,
       maxlength: 70

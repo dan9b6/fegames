@@ -14,21 +14,22 @@
 <br>
 
 <a href="/game/{{gameInfo._id}}/edit">Edit Project</a>
-<<<<<<< HEAD
-=======
 
 <footer>
-  <h4>Comments</h4>
-  {{#each comments}}
-    {{>comment}}
-  {{/each}}
   <h4>Add a Comment</h4>
   <form action="/game/{{gameInfo._id}}/comment" method="POST">
   <label for="input-content">Your Comment</label>
   <textarea name="content" id="input-content" placeholder="Your comment here..."></textarea>
+    <button>Submit Comment</button>
+  </form>
+  <form action="/game/{{gameInfo._id}}/like" method="POST">
+    <button>Like</button>
+  </form>
+  <br>
+    <h4>Comments</h4>
+  {{#each comments}}
+    {{>comment}}
+  {{/each}}
 
-  <button>Submit Comment</button>
-</form>
 </footer>
->>>>>>> 6d60ec58af71fc1dd967d3730441034ea18b5936
 

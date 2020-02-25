@@ -32,6 +32,9 @@ const schemaGame = new mongoose.Schema(
     tagline: {
       type: String,
       maxlength: 70
+    },
+    likes: {
+      type: Number
     }
   },
   {

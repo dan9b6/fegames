@@ -1,4 +1,4 @@
-<h1>Profile</h1>
+<h1>Game: {{gameInfo.title}}</h1>
 <img src= {{gameInfo.photo}} alt="profile picture">
 <br>
 <span><strong>Project Title</strong>: {{gameInfo.title}}</span>
@@ -14,8 +14,3 @@
 
 <a href="/game/{{gameId}}/edit">Edit Project</a>
 
-{{#each games}}
-<ul>
-  <li>{{ title }}</li>
-</ul>
-{{/each}}

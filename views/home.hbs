@@ -2,3 +2,6 @@
 <span><strong>Welcome {{user.name}}!</strong></span>
 <br />
 <span><strong>It's time to play!</strong>
+{{#each games}}
+{{>singlecard}}
+{{/each}}

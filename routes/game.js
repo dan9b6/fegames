@@ -4,6 +4,7 @@ const { Router } = require('express');
 const router = new Router();
 
 const Game = require('../models/game');
+const Comment = require('../models/comment');
 
 const routeGuard = require('./../middleware/route-guard');
 const uploader = require('./../middleware/upload');
@@ -89,15 +90,38 @@ router.post('/:gameId/delete', (req, res, next) => {
     });
 });
 
+router.post('/:gameId/comment', (req, res, next) => {
+  const userId = req.user._id;
+  const gameId = req.params.gameId;
+  const { content } = req.body;
+
+  Comment.create({
+    author: userId,
+    post: gameId,
+    content
+  })
+    .then(comment => {
+      console.log('Commment', comment);
+      res.redirect(`/game/${comment.post}`);
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 //routers for show the game
 router.get('/:gameId', (req, res, next) => {
   const gameId = req.params.gameId;
   //This line 👆🏼 is equal to typing  const { userId } = req.params;
-  let gameInfo;
   Game.findById(gameId)
-    .then(data => {
-      gameInfo = data;
-      res.render('game', { gameInfo, data });
+    .populate('author')
+    .then(gameInfo => {
+      Comment.find({ post: gameInfo._id })
+        .populate('author')
+        .then(comments => {
+          console.log(comments, 'Here');
+          res.render('game', { gameInfo, comments });
+        });
     })
     .catch(error => console.log(error));
 });

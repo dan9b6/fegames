@@ -76,3 +76,13 @@ textarea {
   min-height: 8em;
   resize: vertical;
 }
+
+.index {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  margin-top: 50px;
+}

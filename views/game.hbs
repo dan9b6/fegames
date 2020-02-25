@@ -1,0 +1,35 @@
+<h1>Game: {{gameInfo.title}}</h1>
+<p>by {{gameInfo.author.name}}</p>
+<img src= {{gameInfo.photo}} alt="profile picture">
+<br>
+<span><strong>Project Title</strong>: {{gameInfo.title}}</span>
+<br />
+<span><strong>Category</strong>: {{gameInfo.category}}</span>
+<br>
+<span><strong>Description</strong>: {{gameInfo.description}}</span>
+<br>
+<span><strong>Netlify Link</strong>: {{gameInfo.netlify}}</span>
+<br>
+<span><strong>Tagline</strong>: {{tagline}}</span>
+<br>
+
+<a href="/game/{{gameInfo._id}}/edit">Edit Project</a>
+
+<footer>
+  <h4>Add a Comment</h4>
+  <form action="/game/{{gameInfo._id}}/comment" method="POST">
+  <label for="input-content">Your Comment</label>
+  <textarea name="content" id="input-content" placeholder="Your comment here..."></textarea>
+    <button>Submit Comment</button>
+  </form>
+  <form action="/game/{{gameInfo._id}}/like" method="POST">
+    <button>Like</button>
+  </form>
+  <br>
+    <h4>Comments</h4>
+  {{#each comments}}
+    {{>comment}}
+  {{/each}}
+
+</footer>
+

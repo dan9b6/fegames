@@ -39,6 +39,7 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
 });
 
 //routers for edit a project
+<<<<<<< HEAD:routes/project.js
 router.get('/:projectId/edit', routeGuard, (req, res, next) => {
  
   const projectId = req.params.projectId;
@@ -46,6 +47,13 @@ router.get('/:projectId/edit', routeGuard, (req, res, next) => {
     .then(projectData => {
       console.log("here", projectData)
       res.render('edit-project', projectData);
+=======
+router.get('/:gameId/edit', routeGuard, (req, res, next) => {
+  const gameId = req.params.gameId;
+  Game.findById(gameId)
+    .then(gameData => {
+      res.render('edit-game', gameData);
+>>>>>>> 4090b029647409b7eac13599cb6e1bf2a541b143:routes/game.js
     })
     .catch(error => console.log(error));
 });

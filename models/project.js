@@ -31,7 +31,14 @@ const schemaProject = new mongoose.Schema(
     },
     tagline: {
       type: String,
+<<<<<<< HEAD:models/project.js
       maxlength: 200
+=======
+      maxlength: 70
+    },
+    likes: {
+      type: Number
+>>>>>>> 4090b029647409b7eac13599cb6e1bf2a541b143:models/game.js
     }
   },
   {

@@ -43,7 +43,6 @@ router.get('/:projectId/edit', routeGuard, (req, res, next) => {
   const projectId = req.params.projectId;
   Project.findById(projectId)
     .then(projectData => {
-      
       console.log("here", projectData)
       res.render('edit-project', projectData);
     })
@@ -86,7 +85,7 @@ router.post('/:projectId/delete', (req, res, next) => {
   console.log(userId, projectId);
 
   Project.findByIdAndDelete(projectId)
-    .then(() => {
+    .then(project => {
       res.redirect(`/profile/${userId}`);
     })
     .catch(error => {

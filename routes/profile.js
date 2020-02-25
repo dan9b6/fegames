@@ -6,7 +6,7 @@ const router = new Router();
 const User = require('./../models/user');
 const uploader = require('./../middleware/upload');
 const routeGuard = require('./../middleware/route-guard');
-const Projects = require('../models/project.js');
+const Projects = require('../models/project');
 
 //Endpoint  = http://localhost:3000/profile/5e53f1c6adfa1053546d2972
 // req.params.userId gives you access the the user ID displayed in the url
@@ -20,7 +20,7 @@ router.get('/:userId', (req, res, next) => {
       return Projects.find({ author: userId });
     })
     .then(projects => {
-      projects.map(game=> game.sameUser = true)
+      projects.map(project=> project.sameUser = true)
       res.render('profile', { userInfo, projects });
     })
     .catch(error => console.log(error));

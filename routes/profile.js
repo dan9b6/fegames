@@ -20,6 +20,7 @@ router.get('/:userId', (req, res, next) => {
       return Games.find({ author: userId });
     })
     .then(games => {
+      games.map(game=> game.sameUser = true)
       res.render('profile', { userInfo, games });
     })
     .catch(error => console.log(error));

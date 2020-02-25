@@ -39,6 +39,7 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
 
 //routers for edit a project
 router.get('/:gameId/edit', routeGuard, (req, res, next) => {
+ 
   const gameId = req.params.gameId;
   Game.findById(gameId)
     .then(gameData => {

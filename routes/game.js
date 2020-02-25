@@ -8,22 +8,17 @@ const Game = require('../models/game');
 const routeGuard = require('./../middleware/route-guard');
 const uploader = require('./../middleware/upload');
 
-
-
 //routers for create a project
-router.get('/create', routeGuard, (req,res,next) => {
+router.get('/create', routeGuard, (req, res, next) => {
   res.render('create-game');
 });
 
-
 router.post('/create', uploader.single('photo'), (req, res, next) => {
-  
-  const userId = req.user._id
-  
+  const userId = req.user._id;
+
   const { title, description, tagline, category, netlify } = req.body;
   const author = userId;
   const { url } = req.file;
-
 
   Game.create({
     title,
@@ -40,25 +35,23 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
     .catch(error => {
       next(error);
     });
-}
-);
+});
 
 //routers for edit a project
-router.get('/:gameId/edit', routeGuard, (req,res,next) => {
-  const gameId = req.params.gameId
+router.get('/:gameId/edit', routeGuard, (req, res, next) => {
+  const gameId = req.params.gameId;
   Game.findById(gameId)
-  .then(gameData =>{
-    res.render('edit-game',gameData);
-  })
-  .catch(error => console.log(error));
+    .then(gameData => {
+      res.render('edit-game', gameData);
+    })
+    .catch(error => console.log(error));
 });
 
 router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
-  
-  const userId = req.user._id
-  const gameId = req.params.gameId
+  const userId = req.user._id;
+  const gameId = req.params.gameId;
   const { title, description, tagline, category, netlify } = req.body;
- 
+
   let profilePicture;
   if (req.file) {
     profilePicture = req.file.url;
@@ -80,14 +73,12 @@ router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
     });
 });
 
-
 //router for delete a project
 router.post('/:gameId/delete', (req, res, next) => {
+  const userId = req.user._id;
+  const gameId = req.params.gameId;
+  console.log(userId, gameId);
 
-  const userId = req.user._id
-  const gameId = req.params.gameId
-  console.log(userId, gameId)
-  
   Game.findByIdAndDelete(gameId)
     .then(() => {
       res.redirect(`/profile/${userId}`);
@@ -96,7 +87,6 @@ router.post('/:gameId/delete', (req, res, next) => {
       next(error);
     });
 });
-
 
 //routers for show the game
 router.get('/:gameId', (req, res, next) => {
@@ -110,7 +100,5 @@ router.get('/:gameId', (req, res, next) => {
     })
     .catch(error => console.log(error));
 });
-
-
 
 module.exports = router;

@@ -12,5 +12,14 @@
 <span><strong>Tagline</strong>: {{tagline}}</span>
 <br>
 
-<a href="/game/{{gameId}}/edit">Edit Project</a>
+<a href="/game/{{gameInfo._id}}/edit">Edit Project</a>
+
+<footer>
+  <h4>Comments</h4>
+  {{#each comments}}
+    {{>comment}}
+  {{/each}}
+  <h4>Add a Comment</h4>
+  {{>commentform}}
+</footer>
 

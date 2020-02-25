@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
-const Games = require('../models/game');
+const Projects = require('./../models/project');
 
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'IronGames' });
@@ -11,19 +11,19 @@ router.get('/', (req, res, next) => {
 
 router.get('/home', routeGuard, (req, res, next) => {
   const userId = req.user._id
-  Games.find()
-    .then(games => {
-      console.log(games);
-      games.map(game =>{
-        if (userId.toString() === game.author.toString()) {
+  Projects.find()
+    .then(projects => {
+      console.log(projects);
+      projects.map(project =>{
+        if (userId.toString() === project.author.toString()) {
           console.log("condition true");
-          game.sameUser = true
+          project.sameUser = true
         } else {
           console.log("condition false");
-          game.sameUser = false
+          project.sameUser = false
         }
-      });
-      res.render('home', { games });
+      })
+      res.render('home', { projects });
     })
     .catch(error => next(error));
 });

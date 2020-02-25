@@ -16,24 +16,12 @@ const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const profileRouter = require('./routes/profile');
-const gameRouter = require('./routes/game');
+const projectRouter = require('./routes/project');
 const hbs = require('hbs');
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-hbs.registerHelper('ifCond', function(v1, v2, options) {
-  if(v1 === v2) {
-    return options.fn(this);
-  }
-});
-
-
-hbs.registerHelper('ifEq', function(v1, v2) {
-  return v1 === v2;
-});
-
 
 hbs.registerPartials(join(__dirname, 'views/partials'));
 
@@ -75,7 +63,7 @@ app.use(bindUserToViewLocals);
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/profile', profileRouter);
-app.use('/game', gameRouter);
+app.use('/project', projectRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

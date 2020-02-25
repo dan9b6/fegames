@@ -1,0 +1,27 @@
+<h1>Publish a New Project!</h1>
+<form method="POST" enctype="multipart/form-data">
+  
+  <label for="input-category">Type of Project</label>
+  <select name="category" id="input-category">
+    <option value="Game Project">Game Project</option>
+    <option value="App Project">App Project</option>
+    <option value="Last Project">Last Project</option>
+  </select>
+  
+  <label for="input-photo">Photo</label>
+  <input type="file" name="photo" id="input-photo" accept="image/*"/>
+
+  <label for="input-title">Project Title</label>
+  <input type="text" name="title" id="input-title" placeholder="Input Title" maxlength="80"/>
+  
+  <label for="input-description">Project Description</label>
+  <textarea name="description" id="input-description" placeholder="Write Project Description Here..." maxlength="500"></textarea>
+  
+  <label for="input-tagline">Project Tagline</label>
+  <input type="text" name="tagline" id="input-tagline" placeholder="Input a Project Tagline" maxlength="80"/>
+  
+  <label for="input-netlify">Netlify Link</label>
+  <input type="text" name="netlify" id="input-netlify" placeholder="Input Netlify Link"/>
+  
+  <button>Publish this New Project!</button>
+</form>

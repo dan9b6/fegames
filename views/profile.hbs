@@ -7,13 +7,13 @@
 <br>
 <span><strong>Campus</strong>: {{userInfo.campus}}</span>
 <br>
-<span><strong>Games</strong>: </span>
+<span><strong>Projects</strong>: </span>
 <br>
 <a href="/profile/{{userInfo._id}}/edit">Edit profile</a>
 <br>
-<a href="/game/create">Publish your game!</a>
+<a href="/project/create">Publish your game!</a>
 <div class="row">
-{{#each games}}
+{{#each projects}}
 {{>singlecard}}
 {{/each}}
 </div>

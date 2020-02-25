@@ -1,6 +1,6 @@
 'use strict';
 const mongoose = require('mongoose');
-const schemaGame = new mongoose.Schema(
+const schemaProject = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -27,11 +27,11 @@ const schemaGame = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ['Game Project', 'App Project', 'Final Project']
+      enum: ['Game Project', 'App Project', 'Last Project']
     },
     tagline: {
       type: String,
-      maxlength: 70
+      maxlength: 200
     }
   },
   {
@@ -42,4 +42,4 @@ const schemaGame = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Post', schemaGame);
+module.exports = mongoose.model('Post', schemaProject);

@@ -1,0 +1,32 @@
+<h1>Project: {{projectInfo.title}}</h1>
+<p>by {{projectInfo.author.name}}</p>
+<br>
+<span><strong>Category</strong>: {{projectInfo.category}}</span>
+<br>
+<img src= {{projectInfo.photo}} alt="profile picture">
+<br>
+<span><strong>Project Title</strong>: {{projectInfo.title}}</span>
+<br>
+<span><strong>Description</strong>: {{projectInfo.description}}</span>
+<br>
+<span><strong>Tagline</strong>: {{projectInfo.tagline}}</span>
+<br>
+<span><strong>Netlify Link</strong>: {{projectInfo.netlify}}</span>
+<br>
+
+<a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
+
+<footer>
+  <h4>Comments</h4>
+  {{#each comments}}
+    {{>comment}}
+  {{/each}}
+  <h4>Add a Comment</h4>
+  <form action="/project/{{projectInfo._id}}/comment" method="POST">
+  <label for="input-content">Your Comment</label>
+  <textarea name="content" id="input-content" placeholder="Your comment here..."></textarea>
+
+  <button>Submit Comment</button>
+</form>
+</footer>
+

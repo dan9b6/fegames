@@ -1,0 +1,29 @@
+<h1>Edit Project : {{title}}</h1>
+<form method="POST" enctype="multipart/form-data">
+  
+  <label for="input-category">Type of Project</label>
+  <select name="category" id="input-category">
+    <option value ={{category}}>{{category}}</option>
+    <option value="Game Project">Game Project</option>
+    <option value="App Project">App Project</option>
+    <option value="Last Project">Last Project</option>
+  </select>
+  
+  <label for="input-title">Project Title</label>
+  <input type="text" value={{title}} name="title" id="input-title" placeholder="Input Title" maxlength="80"/>
+
+  <label for="input-description">Project Content</label>
+  <textarea type="text" name="description" id="input-description">{{description}}</textarea>
+  
+  <label for="input-photo">Photo</label>
+  <input type="file" name="photo" id="input-photo" accept="image/*"/>
+  
+  <label for="input-tagline">Project Tagline</label>
+  <textarea type="text" name="tagline" id="input-tagline">{{tagline}}</textarea>
+
+  <label for="input-netlify">Deploy Link</label>
+  <textarea type="text" name="netlify" id="input-netlify">{{netlify}}</textarea>
+
+  <button>Edit this Project!</button>
+</form>
+

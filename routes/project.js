@@ -3,15 +3,15 @@
 const { Router } = require('express');
 const router = new Router();
 
-const Game = require('../models/game');
+const Project = require('../models/project');
 const Comment = require('../models/comment');
 
-const routeGuard = require('./../middleware/route-guard');
-const uploader = require('./../middleware/upload');
+const routeGuard = require('../middleware/route-guard');
+const uploader = require('../middleware/upload');
 
 //routers for create a project
 router.get('/create', routeGuard, (req, res, next) => {
-  res.render('create-game');
+  res.render('create-project');
 });
 
 router.post('/create', uploader.single('photo'), (req, res, next) => {
@@ -21,7 +21,7 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
   const author = userId;
   const { url } = req.file;
 
-  Game.create({
+  Project.create({
     title,
     description,
     photo: url,
@@ -39,27 +39,30 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
 });
 
 //routers for edit a project
-router.get('/:gameId/edit', routeGuard, (req, res, next) => {
+router.get('/:projectId/edit', routeGuard, (req, res, next) => {
  
-  const gameId = req.params.gameId;
-  Game.findById(gameId)
-    .then(gameData => {
-      res.render('edit-game', gameData);
+  const projectId = req.params.projectId;
+  Project.findById(projectId)
+    .then(projectData => {
+      console.log("here", projectData)
+      res.render('edit-project', projectData);
     })
     .catch(error => console.log(error));
 });
 
-router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
+router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
   const userId = req.user._id;
-  const gameId = req.params.gameId;
+  const projectId = req.params.projectId;
   const { title, description, tagline, category, netlify } = req.body;
+
+console.log("User", req.body.category)
 
   let profilePicture;
   if (req.file) {
     profilePicture = req.file.url;
   }
 
-  Game.findByIdAndUpdate(gameId, {
+  Project.findByIdAndUpdate(projectId, {
     ...(title ? { title } : {}),
     ...(description ? { description } : {}),
     ...(tagline ? { tagline } : {}),
@@ -67,7 +70,8 @@ router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
     ...(netlify ? { netlify } : {}),
     ...(profilePicture ? { profilePicture } : {})
   })
-    .then(() => {
+    .then(data => {
+      console.log("end data:", data)
       res.redirect(`/profile/${userId}`);
     })
     .catch(error => {
@@ -76,12 +80,12 @@ router.post('/:gameId/edit', uploader.single('photo'), (req, res, next) => {
 });
 
 //router for delete a project
-router.post('/:gameId/delete', (req, res, next) => {
+router.post('/:projectId/delete', (req, res, next) => {
   const userId = req.user._id;
-  const gameId = req.params.gameId;
-  console.log(userId, gameId);
+  const projectId = req.params.projectId;
+  console.log(userId, projectId);
 
-  Game.findByIdAndDelete(gameId)
+  Project.findByIdAndDelete(projectId)
     .then(() => {
       res.redirect(`/profile/${userId}`);
     })
@@ -90,19 +94,19 @@ router.post('/:gameId/delete', (req, res, next) => {
     });
 });
 
-router.post('/:gameId/comment', (req, res, next) => {
+router.post('/:projectId/comment', (req, res, next) => {
   const userId = req.user._id;
-  const gameId = req.params.gameId;
+  const projectId = req.params.projectId;
   const { content } = req.body;
 
   Comment.create({
     author: userId,
-    post: gameId,
+    post: projectId,
     content
   })
     .then(comment => {
       console.log('Commment', comment);
-      res.redirect(`/game/${comment.post}`);
+      res.redirect(`/project/${comment.post}`);
     })
     .catch(error => {
       next(error);
@@ -110,17 +114,17 @@ router.post('/:gameId/comment', (req, res, next) => {
 });
 
 //routers for show the game
-router.get('/:gameId', (req, res, next) => {
-  const gameId = req.params.gameId;
+router.get('/:projectId', (req, res, next) => {
+  const projectId = req.params.projectId;
   //This line 👆🏼 is equal to typing  const { userId } = req.params;
-  Game.findById(gameId)
+  Project.findById(projectId)
     .populate('author')
-    .then(gameInfo => {
-      Comment.find({ post: gameInfo._id })
+    .then(projectInfo => {
+      Comment.find({ post: projectInfo._id })
         .populate('author')
         .then(comments => {
           console.log(comments, 'Here');
-          res.render('game', { gameInfo, comments });
+          res.render('project', { projectInfo, comments });
         });
     })
     .catch(error => console.log(error));

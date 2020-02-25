@@ -1,6 +1,9 @@
 *, *:before, *:after {
   box-sizing: border-box; }
 
+.container {
+  outline: 1px solid red; }
+
 body {
   max-width: 70em;
   padding: 0 1em;

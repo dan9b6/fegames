@@ -13,8 +13,24 @@
 <br>
 <span><strong>Netlify Link</strong>: {{projectInfo.netlify}}</span>
 <br>
+<p>Likes: {{likeLength}}</p>
 
-<footer>
+<a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
+
+{{#if newLike}}
+<form action="/project/{{projectInfo._id}}/like" method="POST">
+<input type="number" value="{{projectInfo.like}}" name="like" style="display: none;"/>
+  <button>Like</button>
+</form>
+{{else}}
+<p>You have already liked this project!</p>
+{{/if}}
+
+<div class="like-container">
+  <i id="like-btn" class="far fa-heart"></i>
+</div>
+
+<div>
   <h4>Comments</h4>
   {{#each comments}}
     {{>comment}}
@@ -25,6 +41,6 @@
   <textarea name="content" id="input-content" placeholder="Your comment here..."></textarea>
 
   <button>Submit Comment</button>
-</form>
-</footer>
+  </form>
+</div>
 

@@ -32,6 +32,20 @@ const schemaProject = new mongoose.Schema(
     tagline: {
       type: String,
       maxlength: 200
+    },
+    campus: {
+      type: String,
+      enum: [
+        'Amsterdam',
+        'Lisbon',
+        'Madrid',
+        'Miami',
+        'Barcelona',
+        'Mexico City',
+        'Berlin',
+        'Sao Paulo',
+        'Paris'
+      ]
     }
   },
   {

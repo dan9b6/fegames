@@ -79,7 +79,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3000/authentication/github-callback',
+      callbackURL: `${process.env.URL_DEPLOYED}/authentication/github-callback`,
       scope: 'user:email'
     },
     (accessToken, refreshToken, profile, callback) => {

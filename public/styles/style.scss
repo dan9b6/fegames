@@ -1,3 +1,6 @@
+// navbar blue: #5bdfff
+// general dark blue: #3dcaff
+
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
 
@@ -11,7 +14,7 @@ $grey: hsla(0, 0, 75%, 0.5);
 
 body {
   //max-width: 90%;
-  padding: 0 1em;
+  //padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
   font-family: $font-sans;
@@ -25,6 +28,8 @@ a {
 
 nav {
   display: flex;
+  background-color: #5bdfff;
+  color: white;
   a,
   button {
     padding: 1em 0;
@@ -36,6 +41,11 @@ nav {
       margin-right: auto;
     }
   }
+}
+
+.navdiv {
+ // padding-left: 3%;
+  // padding-right: 3%;
 }
 
 h1,
@@ -93,6 +103,7 @@ textarea {
   background-image: url(../images/background.png);
   background-repeat: no-repeat;
   background-position: top;
+  background-position-x: 60%;
   background-size: 60%;
   max-width: 90%;
   margin-left: auto;
@@ -107,9 +118,17 @@ textarea {
   border-radius: 50%;
   height: 20%;
   width: 20%;
-  margin-top: 10%;
+  margin-top: 11%;
+
 }
 
 .userdiv {
-            
+  margin-top: 3%;
+  margin-right: 40%;
+  margin-bottom: 5%
+}
+
+.profilerow {
+  display: flex;
+  justify-content: space-around;
 }

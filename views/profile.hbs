@@ -11,16 +11,16 @@
 <br>
 <span><strong>Campus</strong>: {{userInfo.campus}}</span>
 <br>
-<a href="/profile/{{userInfo._id}}/edit">Edit profile</a>
+<a href="/profile/{{userInfo._id}}/edit"><small><img src="../public/images/3852 - Edit.png"> Edit profile</small></a>
 <br>
-<a href="/project/create">Publish your game!</a>
+<a href="/project/create"><small>Publish your game!</small></a>
 <br>
 </div>
 
 
 <span><strong>Projects</strong>: </span>
 <br>
-<div class="row">
+<div class="profilerow">
 {{#each projects}}
   {{>singlecard}}
 {{/each}}

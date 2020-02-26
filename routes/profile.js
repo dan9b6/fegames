@@ -12,7 +12,6 @@ const Projects = require('../models/project');
 // req.params.userId gives you access the the user ID displayed in the url
 router.get('/:userId', (req, res, next) => {
   const userId = req.params.userId;
-  const loggedUser = req.user._id
   //This line 👆🏼 is equal to typing  const { userId } = req.params;
   let userInfo;
   User.findById(userId)
@@ -21,15 +20,7 @@ router.get('/:userId', (req, res, next) => {
       return Projects.find({ author: userId });
     })
     .then(projects => {
-      projects.map(project =>{
-        if (userId.toString() === loggedUser.toString()) {
-          console.log("condition true");
-          project.sameUser = true
-        } else {
-          console.log("condition false");
-          project.sameUser = false
-        }
-      })
+      projects.map(project=> project.sameUser = true)
       res.render('profile', { userInfo, projects });
     })
     .catch(error => console.log(error));

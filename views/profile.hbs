@@ -1,18 +1,21 @@
-<h1>Profile</h1>
-<img src= {{userInfo.profilePicture}} alt="profile picture">
-<br>
+<section class="sectionprofile ">
+
+
+<img class="imgprofile" src= {{userInfo.profilePicture}} alt="profile picture">
+
+
+<div class="userdiv">
 <span><strong>Username</strong>: {{userInfo.name}}</span>
 <br />
 <span><strong>Email</strong>: {{userInfo.email}}</span>
 <br>
 <span><strong>Campus</strong>: {{userInfo.campus}}</span>
 <br>
-
-
 <a href="/profile/{{userInfo._id}}/edit">Edit profile</a>
 <br>
 <a href="/project/create">Publish your game!</a>
 <br>
+</div>
 
 
 <span><strong>Projects</strong>: </span>
@@ -22,3 +25,5 @@
   {{>singlecard}}
 {{/each}}
 </div>
+
+</section>

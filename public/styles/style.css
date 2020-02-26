@@ -2,7 +2,6 @@
   box-sizing: border-box; }
 
 body {
-  max-width: 70em;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -70,9 +69,30 @@ textarea {
   align-content: stretch;
   margin-top: 50px; }
 
+<<<<<<< HEAD
+.sectionprofile {
+  background-image: url(../images/background.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 60%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.imgprofile {
+  border-radius: 50%;
+  height: 20%;
+  width: 20%;
+  margin-top: 10%; }
+=======
 .select-box {
   display: inline-block;
   margin: 1px;
   text-align: center; }
+>>>>>>> 2fb0f3fbeeefa608fca3c4e319741f997fb2f698
 
 /*# sourceMappingURL=style.css.map */

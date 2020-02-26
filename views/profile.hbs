@@ -7,11 +7,16 @@
 <br>
 <span><strong>Campus</strong>: {{userInfo.campus}}</span>
 <br>
-<span><strong>Projects</strong>: </span>
-<br>
+
+
 <a href="/profile/{{userInfo._id}}/edit">Edit profile</a>
 <br>
 <a href="/project/create">Publish your game!</a>
+<br>
+
+
+<span><strong>Projects</strong>: </span>
+<br>
 <div class="row">
 {{#each projects}}
   {{>singlecard}}

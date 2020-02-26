@@ -6,8 +6,12 @@
     <a href="/project/{{_id}}" class="btn btn-primary d-flex align-items-end">Go to the game!</a>
 
 {{#if sameUser}}
-    <a href="/project/{{_id}}/edit" class="btn btn-primary d-flex align-items-end">Edit!</a>
-    <a href="/project/{{_id}}/delete" class="btn btn-primary d-flex align-items-end">Delete</a>
+    
+  <form action="/project/{{_id}}/delete" method="POST" enctype="multipart/form-data">
+    <button href="/project/{{_id}}/edit" class="btn btn-primary d-flex align-items-end">Edit!</button>
+    <button href="/project/{{_id}}/delete" class="btn btn-primary d-flex align-items-end">Delete</button>
+</form>
+
 {{/if}}
 
   </div>

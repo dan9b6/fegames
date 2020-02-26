@@ -19,15 +19,32 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
   const { title, description, tagline, category, netlify } = req.body;
   const author = userId;
   const { url } = req.file;
-
-  Project.create({
-    title,
-    description,
-    photo: url,
-    author,
-    category,
-    netlify,
-    tagline
+  let sameCat = false;
+  //IDEA: Check for the projects for that user and see if the user has createad a project or not
+  //First: find all projects
+  Project.find({author: userId})
+  .then(projectsByUser =>{
+    let count = 0;
+    while (count < projectsByUser.length && sameCat === false) {
+      projectsByUser[count].category===category ? sameCat=true : sameCat=false;
+      count ++;
+    }
+    if (sameCat) {
+      const error = new Error('YOU ALREADY CREATED A GAME WITH THAT CATEGORY');
+    error.status = 444;
+    throw (error);
+    } else {
+      //console.log("projects by user", projectsByUser)
+      return Project.create({
+        title,
+        description,
+        photo: url,
+        author,
+        category,
+        netlify,
+        tagline
+      });
+    }
   })
     .then(post => {
       res.redirect(`/profile/${userId}`);

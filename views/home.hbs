@@ -2,32 +2,34 @@
 <span><strong>Welcome {{user.name}}!</strong></span>
 <br />
 <span><strong>Lets get started...</strong>
-<form action="" method="POST">
-  <label for="input-campus">Campus</label>
-  <select name="" id="">
-    <option value="Amsterdam">Amsterdam</option>
-    <option value="Lisbon">Lisbon</option>
-    <option value="Miami">Miami</option>
-    <option value="Berlin">Berlin</option>
-    <option value="Paris">Paris</option>
-    <option value="Mexico City">Mexico City</option>
-    <option value="Sao Paulo">Sao Paulo</option>
-    <option value="Madrid">Madrid</option>
-    <option value="Barcelona">Barcelona</option>
-  </select>
-</form>
-<form action="" method="POST">
-  <label for="input-project">Project Type</label>
-  <select name="" id="">
-    <option value="Game Project">Game Project</option>
-    <option value="App Project">App Project</option>
-    <option value="Final Project">Final Project</option>
-  </select>
-</form>
-<div class="container">
-  <div class = "row">
-    {{#each projects}}
-    {{>singlecard}}
-    {{/each}}
+  <form action="" method="GET">
+    <label for="input-campus">Campus</label>
+    <select name="campus" id="">
+      <option value="All Campuses">All campuses</option>
+      <option value="Amsterdam">Amsterdam</option>
+      <option value="Lisbon">Lisbon</option>
+      <option value="Miami">Miami</option>
+      <option value="Berlin">Berlin</option>
+      <option value="Paris">Paris</option>
+      <option value="Mexico City">Mexico City</option>
+      <option value="Sao Paulo">Sao Paulo</option>
+      <option value="Madrid">Madrid</option>
+      <option value="Barcelona">Barcelona</option>
+    </select>
+
+    <label for="input-project">Project Type</label>
+    <select name="category" id="">
+      <option value="All Projects">All Projects</option>
+      <option value="Game Project">Game Project</option>
+      <option value="App Project">App Project</option>
+      <option value="Last Project">Last Project</option>
+    </select>
+    <button>Filter</button>
+  </form>
+  <div class="container">
+    <div class="row">
+      {{#each projects}}
+      {{>singlecard}}
+      {{/each}}
+    </div>
   </div>
-</div>

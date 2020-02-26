@@ -37,13 +37,30 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
     });
 });
 
+//add a like
+router.post('/:projectId/like', routeGuard, (req, res, next) => {
+  console.log(req.body);
+  const projectId = req.params.projectId;
+  const newLike = parseInt(req.body.like) + 1;
+  console.log(newLike);
+  Project.findByIdAndUpdate(projectId, {
+    like: newLike
+  })
+    .then(data => {
+      console.log('end data:', data);
+      res.redirect(`/project/${projectId}`);
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 //routers for edit a project
 router.get('/:projectId/edit', routeGuard, (req, res, next) => {
-  
   const projectId = req.params.projectId;
   Project.findById(projectId)
     .then(projectData => {
-      console.log("here", projectData)
+      console.log('here', projectData);
       res.render('edit-project', projectData);
     })
     .catch(error => console.log(error));
@@ -54,7 +71,7 @@ router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
   const projectId = req.params.projectId;
   const { title, description, tagline, category, netlify } = req.body;
 
-console.log("User", req.body.category)
+  console.log('User', req.body.category);
 
   let profilePicture;
   if (req.file) {
@@ -70,7 +87,7 @@ console.log("User", req.body.category)
     ...(profilePicture ? { profilePicture } : {})
   })
     .then(data => {
-      console.log("end data:", data)
+      console.log('end data:', data);
       res.redirect(`/profile/${userId}`);
     })
     .catch(error => {

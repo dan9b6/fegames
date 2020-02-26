@@ -5,6 +5,7 @@ const router = new Router();
 
 const Project = require('../models/project');
 const Comment = require('../models/comment');
+const Like = require('../models/like');
 const routeGuard = require('../middleware/route-guard');
 const uploader = require('../middleware/upload');
 
@@ -39,12 +40,11 @@ router.post('/create', uploader.single('photo'), (req, res, next) => {
 
 //add a like
 router.post('/:projectId/like', routeGuard, (req, res, next) => {
-  console.log(req.body);
   const projectId = req.params.projectId;
-  const newLike = parseInt(req.body.like) + 1;
-  console.log(newLike);
-  Project.findByIdAndUpdate(projectId, {
-    like: newLike
+  const userId = req.user._id;
+  Like.create({
+    projectId: projectId,
+    likerId: userId
   })
     .then(data => {
       console.log('end data:', data);
@@ -132,6 +132,7 @@ router.post('/:projectId/comment', (req, res, next) => {
 //routers for show the game
 router.get('/:projectId', (req, res, next) => {
   const projectId = req.params.projectId;
+  const userId = req.user._id;
   //This line 👆🏼 is equal to typing  const { userId } = req.params;
   Project.findById(projectId)
     .populate('author')
@@ -139,8 +140,28 @@ router.get('/:projectId', (req, res, next) => {
       Comment.find({ post: projectInfo._id })
         .populate('author')
         .then(comments => {
-          console.log(comments, 'Here');
-          res.render('project', { projectInfo, comments });
+          Like.find({ projectId: projectInfo._id }).then(likes => {
+            const likeLength = likes.length;
+            console.log(likeLength);
+            let addLike = likes.filter((val, index) => {
+              if (val.likerId.toString() === userId.toString()) {
+                return val;
+              }
+            });
+            console.log('addLike', addLike);
+
+            let newLike;
+
+            if (addLike.length === 0) {
+              newLike = true;
+            } else {
+              newLike = false;
+            }
+
+            console.log(newLike, 'Checklike');
+
+            res.render('project', { projectInfo, comments, likeLength, newLike });
+          });
         });
     })
     .catch(error => console.log(error));

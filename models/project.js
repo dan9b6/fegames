@@ -32,10 +32,6 @@ const schemaProject = new mongoose.Schema(
     tagline: {
       type: String,
       maxlength: 200
-    },
-    like: {
-      type: Number,
-      default: 0
     }
   },
   {

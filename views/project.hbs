@@ -13,14 +13,18 @@
 <br>
 <span><strong>Netlify Link</strong>: {{projectInfo.netlify}}</span>
 <br>
-<p>Likes: {{projectInfo.like}}</p>
+<p>Likes: {{likeLength}}</p>
 
 <a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
 
+{{#if newLike}}
 <form action="/project/{{projectInfo._id}}/like" method="POST">
 <input type="number" value="{{projectInfo.like}}" name="like" style="display: none;"/>
   <button>Like</button>
 </form>
+{{else}}
+<p>You have already liked this project!</p>
+{{/if}}
 
 <div class="like-container">
   <i id="like-btn" class="far fa-heart"></i>

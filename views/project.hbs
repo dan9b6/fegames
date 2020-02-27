@@ -22,7 +22,9 @@
 </div>
 <p>Likes: {{likeLength}}</p>
 
-<a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
+<!--
+  <a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
+-->
 
 {{#if newLike}}
 <form action="/project/{{projectInfo._id}}/like" method="POST">

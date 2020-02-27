@@ -140,7 +140,12 @@ textarea {
   width: 20%;
   margin-top: 11%; }
 
+<<<<<<< HEAD
 .projectdiv .userdiv {
+=======
+.projectdiv,
+.userdiv {
+>>>>>>> 8214efedfc48191bb873cf0d46c54139e8e089ad
   margin-top: 3%;
   margin-right: 40%;
   margin-bottom: 5%; }

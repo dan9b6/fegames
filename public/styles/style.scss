@@ -150,7 +150,7 @@ textarea {
   border-radius: 10px;
 }
 
-//style for profile section only
+//style for profile section
 .secproject,
 .sectionprofile {
   background-image: url(../images/background.png);
@@ -174,7 +174,8 @@ textarea {
   margin-top: 11%;
 }
 
-.projectdiv .userdiv {
+.projectdiv,
+.userdiv {
   margin-top: 3%;
   margin-right: 40%;
   margin-bottom: 5%;
@@ -184,6 +185,8 @@ textarea {
   display: flex;
   justify-content: space-around;
 }
+
+//project page
 
 .imgproject {
   border-radius: 5%;

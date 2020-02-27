@@ -156,13 +156,14 @@ textarea {
 // Sign in & Sign up form pages
 
 .sign {
-  background-color: #f4f4f4;
+  background-color: white;
   width: 30%;
   text-align: left;
   margin: 0 auto;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
 }
 
 .sign form > input {
@@ -177,10 +178,6 @@ textarea {
   align-items: center;
 }
 
-.form-inline button {
-  height: 10px;
-}
-
 .form-inline label {
   margin: 5px 2% 5px 0;
 }
@@ -193,6 +190,12 @@ textarea {
   border: 1px solid #ddd;
 }
 
+.form-inline button {
+  margin-left: 2%;
+}
+.form-inline select {
+  margin-right: 5%;
+}
 .card-img-top {
   object-fit: cover;
 }
@@ -209,6 +212,7 @@ textarea {
   color: white;
   border-color: #5bdfff;
 }
+
 //style for profile section
 .secproject,
 .sectionprofile {
@@ -252,6 +256,23 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+// edit pages
+
+.edit {
+  background-color: white;
+  width: 50%;
+  text-align: left;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.edit form > input {
+  border-radius: 10px;
 }
 
 //project page
@@ -303,36 +324,58 @@ textarea {
   text-decoration: none;
   color: #5bdfff;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e21c1cd4f89f5b97c5e9438f5865060a7607700
 
 //comments style
 
-.likeform{
-  display:flex;
+.likeform {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-right: 63%;
 }
 
-.comments{
+.comments {
   display: flex;
   flex-direction: column;
   width: 70%;
-
 }
 
-.formcomment{
+.formcomment {
 }
 
-.dcomments{
-margin-right: 50%;
-margin-bottom: 5%
+.dcomments {
+  margin-right: 50%;
+  margin-bottom: 5%;
 }
 
-.youorcomment{
-
+.likeform button {
+  border: none;
+  outline: none;
+  margin: 2px 5px 0 0;
 }
+
+//error
+
+.error {
+  background-color: white;
+  width: 85%;
+  text-align: left;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.auto-margin {
+  margin: 0 auto;
+}
+<<<<<<< HEAD
 
 
 //edit profile style
@@ -342,3 +385,5 @@ margin-bottom: 5%
   margin-right: 20%;
   margin-top: 3%
 }
+=======
+>>>>>>> 8e21c1cd4f89f5b97c5e9438f5865060a7607700

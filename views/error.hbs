@@ -1,3 +1,12 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
+<div class="index-page">
+  <div class="error">
+    {{#if user}}
+        {{else}}
+      <a href="/">Go back</a>
+    {{/if}}
+<h2>Error {{error.status}} - {{message}}</h2>
+<img class="auto-margin" src="/images/error.jpg" alt="">
+<h3>Something went wrong.... OOPS! Please click the go back page.(Either you are a hacker or we need to fix something.) </h3>
 <pre>{{error.stack}}</pre>
+  </div>
+</div>

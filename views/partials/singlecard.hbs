@@ -8,9 +8,9 @@
     <a href="/project/{{_id}}" class="btn btn-primary text-center d-flex align-items-end" style="width: 45%" >More Info</a>
 {{#if sameUser}}
     
-    <a href="/project/{{_id}}/edit" class="btn btn-primary text-center d-flex align-items-end">Edit!</a>
+    <a href="/project/{{_id}}/edit" class="btn btn-primary text-center d-flex align-items-end">Edit</a>
   <form action="/project/{{_id}}/delete" method="POST" enctype="multipart/form-data">
-    <button href="/project/{{_id}}/delete" class="btn btn-primary text-center d-flex align-items-end">Delete</button>
+    <button href="/project/{{_id}}/delete" class="btn btn-danger text-center d-flex align-items-end">Delete</button>
   </form>
 
 {{/if}}

@@ -30,7 +30,7 @@
 {{#if newLike}}
 <form action="/project/{{projectInfo._id}}/like" method="POST">
 <input type="number" value="{{projectInfo.like}}" name="like" style="display: none;"/>
-  <button><i id="like-btn" class="far fa-heart"></i></button>
+  <button><i class="far fa-heart"></i></button>
 </form>
 {{else}}
 <button><i class="fas fa-heart"></i></button>

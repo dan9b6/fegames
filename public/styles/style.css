@@ -222,4 +222,20 @@ textarea {
   text-decoration: none;
   color: #5bdfff; }
 
+.likeform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 63%; }
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  width: 70%; }
+
+.dcomments {
+  margin-right: 50%;
+  margin-bottom: 5%; }
+
 /*# sourceMappingURL=style.css.map */

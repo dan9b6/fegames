@@ -276,3 +276,33 @@ textarea {
   text-decoration: none;
   color: #5bdfff;
 }
+
+
+//comments style
+
+.likeform{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 63%;
+}
+
+.comments{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+
+}
+
+.formcomment{
+}
+
+.dcomments{
+margin-right: 50%;
+margin-bottom: 5%
+}
+
+.youorcomment{
+
+}

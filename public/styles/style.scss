@@ -23,7 +23,6 @@ a {
   text-decoration: none;
 }
 
-
 nav {
   display: flex;
   background-color: #5bdfff;
@@ -104,20 +103,20 @@ textarea {
 
 //home style
 
-.homediv{
+.homediv {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 6%;
-  margin-bottom: 5%
+  margin-bottom: 5%;
 }
 
 // index page buttons!
 
 .index-page {
   width: 100%;
-  height: 150 vh;
+  min-height: 100vh;
   background: #5bdfff;
   padding: 20px;
   margin: 0;
@@ -385,11 +384,10 @@ textarea {
   height: auto;
 }
 
-
 //edit profile style
 
 .editform {
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 3%
+  margin-top: 3%;
 }

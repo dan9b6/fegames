@@ -13,11 +13,8 @@ $grey: hsla(0, 0, 75%, 0.5);
 }
 
 body {
-  //max-width: 90%;
-  //padding: 0 1em;
   margin: 0 auto;
-  font-family: sans-serif;
-  font-family: $font-sans;
+  font-family: 'Lato', sans-serif;
   line-height: 2;
 }
 
@@ -44,11 +41,8 @@ nav {
 }
 
 .navdiv a {
-  border-radius: 15%;
-  background-color: #f4f4f4;
-  color: #5bdfff;
+  border-radius: 10px;
   text-transform: uppercase;
-  border-color: #5bdfff;
   transition: all 0.4s ease-in-out;
   margin: 10px;
 }
@@ -56,7 +50,9 @@ nav {
 .navdiv a:hover {
   background-color: #5bdfff;
   color: #f4f4f4;
-  transform: scale(1.4);
+  text-decoration: none;
+  color: white;
+  font-size: 1.05em;
 }
 
 h1,
@@ -71,7 +67,6 @@ p {
 }
 
 img {
-  //width: 100%;
   max-width: 100%;
 }
 
@@ -98,14 +93,21 @@ textarea {
   resize: vertical;
 }
 
+// index page buttons!
+
 .index-page {
   width: 100vw;
   height: 100vh;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   background: #5bdfff;
   padding: 20px;
   margin: 0;
   text-align: center;
+}
+
+.index-page img {
+  width: 20%;
+  margin-top: 8%;
+  margin-bottom: 2%;
 }
 
 .index-form button {
@@ -116,16 +118,40 @@ textarea {
   border-color: #5bdfff;
   transition: all 0.4s ease-in-out;
   margin: 10px;
+  outline: none;
 }
 
 .index-form button:hover {
   background-color: #5bdfff;
   color: #f4f4f4;
   transform: scale(1.4);
+  text-decoration: none;
+  outline: none;
+}
+
+.index-form button a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+// Sign in & Sign up form pages
+
+.sign {
+  background-color: #f4f4f4;
+  width: 30%;
+  text-align: left;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.sign form > input {
+  border-radius: 10px;
 }
 
 //style for profile section only
-
+.secproject,
 .sectionprofile {
   background-image: url(../images/background.png);
   background-repeat: no-repeat;
@@ -148,7 +174,7 @@ textarea {
   margin-top: 11%;
 }
 
-.userdiv {
+.projectdiv .userdiv {
   margin-top: 3%;
   margin-right: 40%;
   margin-bottom: 5%;
@@ -157,4 +183,24 @@ textarea {
 .profilerow {
   display: flex;
   justify-content: space-around;
+}
+
+.imgproject {
+  border-radius: 5%;
+  height: 45%;
+  width: 45%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.secproject {
+  background-size: 100%;
+}
+
+.titleproject {
+  color: white;
+  margin-right: 15%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2%;
 }

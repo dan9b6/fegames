@@ -21,7 +21,7 @@ const hbs = require('hbs');
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
-app.set('view engine', 'hbs'); 
+app.set('view engine', 'hbs');
 
 hbs.registerPartials(join(__dirname, 'views/partials'));
 
@@ -45,10 +45,10 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 60 * 60 * 24 * 15,
+      maxAge: 60 * 60 * 24 * 60,
       sameSite: 'lax',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production'
+      httpOnly: true
+      // secure: process.env.NODE_ENV === 'production'
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,

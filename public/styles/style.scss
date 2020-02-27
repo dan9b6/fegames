@@ -23,10 +23,13 @@ a {
   text-decoration: none;
 }
 
+
 nav {
   display: flex;
   background-color: #5bdfff;
   color: white;
+  justify-content: center;
+  align-items: center;
   a,
   button {
     padding: 1em 0;
@@ -97,6 +100,18 @@ textarea {
 .set-margin {
   margin: 0 10%;
 }
+
+//home style
+
+.homediv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: 5%
+}
+
 // index page buttons!
 
 .index-page {
@@ -288,7 +303,6 @@ textarea {
   text-decoration: none;
   color: #5bdfff;
 }
-<<<<<<< HEAD
 
 
 //comments style
@@ -319,5 +333,12 @@ margin-bottom: 5%
 .youorcomment{
 
 }
-=======
->>>>>>> 7708472b438ca14789b67e1a5a1f38d64320acc0
+
+
+//edit profile style
+
+.editform {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3%
+}

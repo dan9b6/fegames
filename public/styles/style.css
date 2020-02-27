@@ -13,7 +13,9 @@ a {
 nav {
   display: flex;
   background-color: #5bdfff;
-  color: white; }
+  color: white;
+  justify-content: center;
+  align-items: center; }
   nav a,
   nav button {
     padding: 1em 0;
@@ -76,6 +78,14 @@ textarea {
 
 .set-margin {
   margin: 0 10%; }
+
+.homediv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: 5%; }
 
 .index-page {
   width: 100vw;
@@ -249,5 +259,10 @@ textarea {
 .dcomments {
   margin-right: 50%;
   margin-bottom: 5%; }
+
+.editform {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3%; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,15 @@
-<h1>Project: {{projectInfo.title}}</h1>
-<p>by {{projectInfo.author.name}}</p>
+<section class="secproject">
+
+<div class="titleproject">
+<h3><strong>{{projectInfo.title}}</strong> by {{projectInfo.author.name}}</h3>
 <br>
+</div>
+
+<img class="imgproject" src= {{projectInfo.photo}} alt="profile picture">
+<br>
+
+<div class="projectdiv">
 <span><strong>Category</strong>: {{projectInfo.category}}</span>
-<br>
-<img src= {{projectInfo.photo}} alt="profile picture">
 <br>
 <span><strong>Project Title</strong>: {{projectInfo.title}}</span>
 <br>
@@ -13,6 +19,7 @@
 <br>
 <span><strong>Netlify Link</strong>: {{projectInfo.netlify}}</span>
 <br>
+</div>
 <p>Likes: {{likeLength}}</p>
 
 <a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
@@ -44,3 +51,4 @@
   </form>
 </div>
 
+</section>

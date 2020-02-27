@@ -70,6 +70,7 @@ textarea {
   align-content: stretch;
   margin-top: 50px; }
 
+.secproject,
 .sectionprofile {
   background-image: url(../images/background.png);
   background-repeat: no-repeat;
@@ -90,6 +91,7 @@ textarea {
   width: 20%;
   margin-top: 11%; }
 
+.projectdiv
 .userdiv {
   margin-top: 3%;
   margin-right: 40%;
@@ -98,5 +100,22 @@ textarea {
 .profilerow {
   display: flex;
   justify-content: space-around; }
+
+.imgproject {
+  border-radius: 5%;
+  height: 45%;
+  width: 45%;
+  margin-top: 2%;
+  margin-bottom: 3%; }
+
+.secproject {
+  background-size: 100%; }
+
+.titleproject {
+  color: white;
+  margin-right: 15%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2%; }
 
 /*# sourceMappingURL=style.css.map */

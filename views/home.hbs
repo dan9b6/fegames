@@ -1,8 +1,9 @@
-<h1>Projects</h1>
-<span><strong>Welcome {{user.name}}!</strong></span>
-<br />
-<span><strong>Lets get started...</strong>
-  <form action="" method="GET">
+<div class="set-margin">
+  <h1>Projects</h1>
+  <span><strong>Welcome {{user.name}}!</strong></span>
+  <br />
+  <strong>Which project are you looking for?</strong>
+  <form class="form-inline" action="" method="GET">
     <label for="input-campus">Campus</label>
     <select name="campus" id="">
       <option value="All Campuses">All campuses</option>
@@ -26,10 +27,14 @@
     </select>
     <button>Filter</button>
   </form>
-  <div class="container">
-    <div class="row">
+  <div class="container central">
+    <div class="row row-cols-1 row-cols-md-3">
       {{#each projects}}
+      {{!-- <div class="col"> --}}
       {{>singlecard}}
+      {{!-- </div> --}}
       {{/each}}
     </div>
   </div>
+</div>
+</span>

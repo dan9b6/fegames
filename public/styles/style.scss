@@ -339,3 +339,20 @@ textarea {
   outline: none;
   margin: 2px 5px 0 0;
 }
+
+//error
+
+.error {
+  background-color: white;
+  width: 85%;
+  text-align: left;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.auto-margin {
+  margin: 0 auto;
+}

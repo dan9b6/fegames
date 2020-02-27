@@ -97,7 +97,7 @@ textarea {
   margin-top: 50px;
 }
 
-//style for profile section only
+//style for profile section
 .secproject,
 .sectionprofile {
   background-image: url(../images/background.png);
@@ -122,7 +122,7 @@ textarea {
 
 }
 
-.projectdiv 
+.projectdiv ,
 .userdiv {
   margin-top: 3%;
   margin-right: 40%;
@@ -133,6 +133,8 @@ textarea {
   display: flex;
   justify-content: space-around;
 }
+
+//project page
 
 .imgproject {
   border-radius: 5%;

@@ -20,10 +20,14 @@
 
 <span><strong>Your Projects</strong>: </span>
 <br>
-<div class="profilerow">
-{{#each projects}}
-  {{>singlecard}}
-{{/each}}
-</div>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+      {{#each projects}}
+      {{!-- <div class="col"> --}}
+      {{>singlecard}}
+      {{!-- </div> --}}
+      {{/each}}
+    </div>
+  </div>
 
 </section>

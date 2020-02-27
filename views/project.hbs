@@ -21,37 +21,42 @@
 <div class="projectbtn">
 <button><a href="http://{{projectInfo.netlify}}" target="_blank">Try Now!</a></button>
 </div>
-<p>Likes: {{likeLength}}</p>
 
 <!--
   <a href="/project/{{projectInfo._id}}/edit">Edit Project</a>
 -->
+<div  class="likeform">
 
 {{#if newLike}}
 <form action="/project/{{projectInfo._id}}/like" method="POST">
 <input type="number" value="{{projectInfo.like}}" name="like" style="display: none;"/>
-  <button>Like</button>
+  <button><i class="far fa-heart"></i></button>
 </form>
 {{else}}
-<p>You have already liked this project!</p>
+<button><i class="fas fa-heart"></i></button>
 {{/if}}
+<p>   Likes: {{likeLength}}</p>
 
-<div class="like-container">
-  <i id="like-btn" class="far fa-heart"></i>
 </div>
 
-<div>
+<div class="comments">
+  
+  <div class="dcomments">
   <h4>Comments</h4>
   {{#each comments}}
     {{>comment}}
   {{/each}}
-  <h4>Add a Comment</h4>
-  <form action="/project/{{projectInfo._id}}/comment" method="POST">
-  <label for="input-content">Your Comment</label>
-  <textarea name="content" id="input-content" placeholder="Your comment here..."></textarea>
+  </div>
+  
 
+  <div class="container">
+  <form class="formcomment" action="/project/{{projectInfo._id}}/comment" method="POST">
+  <label for="input-content">Type your comment:</label>
+  <textarea name="content" id="input-content" placeholder="i love this Game, but Lisbon games are the best!"></textarea>
   <button>Submit Comment</button>
   </form>
+  </div>
+
 </div>
 
 </section>

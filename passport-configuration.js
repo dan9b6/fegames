@@ -86,7 +86,7 @@ passport.use(
       const { displayName: name, emails, photos: [{ value: photo } = {}] = [] } = profile;
       const primaryEmail = emails.find(email => email.primary).value;
       const primaryName = profile.username;
-      console.log(profile);
+      // console.log(profile);
       User.findOne({ email: primaryEmail })
         .then(user => {
           if (user) {

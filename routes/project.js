@@ -17,36 +17,39 @@ router.get('/create', routeGuard, (req, res, next) => {
 router.post('/create', uploader.single('photo'), (req, res, next) => {
   const userId = req.user._id;
 
-  const { title, description, tagline, category, netlify } = req.body;
+  const { title, description, tagline, category, netlify, campus } = req.body;
+
   const author = userId;
   const { url } = req.file;
   let sameCat = false;
   //IDEA: Check for the projects for that user and see if the user has createad a project or not
   //First: find all projects
-  Project.find({author: userId})
-  .then(projectsByUser =>{
-    let count = 0;
-    while (count < projectsByUser.length && sameCat === false) {
-      projectsByUser[count].category===category ? sameCat=true : sameCat=false;
-      count ++;
-    }
-    if (sameCat) {
-      const error = new Error('YOU ALREADY CREATED A GAME WITH THAT CATEGORY');
-    error.status = 444;
-    throw (error);
-    } else {
-      //console.log("projects by user", projectsByUser)
-      return Project.create({
-        title,
-        description,
-        photo: url,
-        author,
-        category,
-        netlify,
-        tagline
-      });
-    }
-  })
+  Project.find({ author: userId })
+    .then(projectsByUser => {
+      let count = 0;
+      //ASK WHAT THIS IS DOING - I think this is checking if the project that you are trying to create already has that category
+      while (count < projectsByUser.length && sameCat === false) {
+        projectsByUser[count].category === category ? (sameCat = true) : (sameCat = false);
+        count++;
+      }
+      if (sameCat) {
+        const error = new Error('YOU ALREADY CREATED A GAME WITH THAT CATEGORY');
+        error.status = 444;
+        throw error;
+      } else {
+        //console.log("projects by user", projectsByUser)
+        return Project.create({
+          title,
+          description,
+          photo: url,
+          author,
+          category,
+          netlify,
+          tagline,
+          campus
+        });
+      }
+    })
     .then(post => {
       res.redirect(`/profile/${userId}`);
     })
@@ -64,7 +67,7 @@ router.post('/:projectId/like', routeGuard, (req, res, next) => {
     likerId: userId
   })
     .then(data => {
-      console.log('end data:', data);
+      // console.log('end data:', data);
       res.redirect(`/project/${projectId}`);
     })
     .catch(error => {
@@ -77,25 +80,23 @@ router.get('/:projectId/edit', routeGuard, (req, res, next) => {
   const projectId = req.params.projectId;
   Project.findById(projectId)
     .then(projectData => {
-      console.log('here', projectData);
+      // console.log('here', projectData);
       res.render('edit-project', projectData);
     })
     .catch(error => console.log(error));
 });
 
 router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
-  
   const projectId = req.params.projectId;
   const { title, description, tagline, category, netlify } = req.body;
 
-
   let photo;
-  
+
   if (req.file) {
     photo = req.file.url;
   }
 
-  console.log("this is the picture", photo)
+  // console.log("this is the picture", photo)
 
   Project.findByIdAndUpdate(projectId, {
     ...(title ? { title } : {}),
@@ -106,7 +107,7 @@ router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
     ...(photo ? { photo } : {})
   })
     .then(data => {
-      console.log('end data:', data);
+      // console.log('end data:', data);
       res.redirect(`/project/${projectId}`);
     })
     .catch(error => {
@@ -118,7 +119,7 @@ router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
 router.post('/:projectId/delete', (req, res, next) => {
   const userId = req.user._id;
   const projectId = req.params.projectId;
-  console.log(userId, projectId);
+  // console.log(userId, projectId);
 
   Project.findByIdAndDelete(projectId)
     .then(project => {
@@ -140,7 +141,7 @@ router.post('/:projectId/comment', (req, res, next) => {
     content
   })
     .then(comment => {
-      console.log('Commment', comment);
+      // console.log('Commment', comment);
       res.redirect(`/project/${comment.post}`);
     })
     .catch(error => {
@@ -161,13 +162,13 @@ router.get('/:projectId', (req, res, next) => {
         .then(comments => {
           Like.find({ projectId: projectInfo._id }).then(likes => {
             const likeLength = likes.length;
-            console.log(likeLength);
+            // console.log(likeLength);
             let addLike = likes.filter((val, index) => {
               if (val.likerId.toString() === userId.toString()) {
                 return val;
               }
             });
-            console.log('addLike', addLike);
+            // console.log('addLike', addLike);
 
             let newLike;
 
@@ -177,7 +178,7 @@ router.get('/:projectId', (req, res, next) => {
               newLike = false;
             }
 
-            console.log(newLike, 'Checklike');
+            // console.log(newLike, 'Checklike');
 
             res.render('project', { projectInfo, comments, likeLength, newLike });
           });

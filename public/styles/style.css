@@ -25,7 +25,8 @@ nav {
     nav button:first-child {
       margin-right: auto; }
 
-.navdiv a, button {
+.navdiv a,
+button {
   border-radius: 10px;
   text-transform: uppercase;
   transition: all 0.4s ease-in-out; }
@@ -142,6 +143,17 @@ textarea {
 
 .card-img-top {
   object-fit: cover; }
+
+.btn-info {
+  background-color: white;
+  color: black;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase; }
+
+.btn-info:hover {
+  background-color: #5bdfff;
+  color: white;
+  border-color: #5bdfff; }
 
 .secproject,
 .sectionprofile {

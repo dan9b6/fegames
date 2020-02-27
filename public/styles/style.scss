@@ -40,11 +40,10 @@ nav {
   }
 }
 
-.navdiv a {
+.navdiv a, button {
   border-radius: 10px;
   text-transform: uppercase;
   transition: all 0.4s ease-in-out;
-  margin: 10px;
 }
 
 .navdiv a:hover {
@@ -209,11 +208,22 @@ textarea {
 .userdiv {
   margin-top: 3%;
   margin-right: 40%;
-  margin-bottom: 5%;
+  margin-bottom: 3%
 }
+
+.userdiv a{
+  text-decoration: none;
+}
+
+.userdiv a:hover{
+  color: #5bdfff
+}
+
+
 
 .profilerow {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
@@ -221,8 +231,8 @@ textarea {
 
 .imgproject {
   border-radius: 5%;
-  height: 45%;
-  width: 45%;
+  height: 470px;
+  width: 600px;
   margin-top: 2%;
   margin-bottom: 3%;
 }
@@ -237,4 +247,32 @@ textarea {
   display: flex;
   flex-direction: row;
   padding-top: 2%;
+}
+
+.projectbtn{
+  margin-bottom: 5%;
+}
+
+.projectbtn button {
+  border-radius: 15%;
+  background-color: #5bdfff;
+  color: white;
+  text-transform: uppercase;
+  border-color: white;
+  transition: all 0.4s ease-in-out;
+  margin: 10px;
+  outline: none;
+}
+
+.projectbtn button:hover {
+  background-color: white;
+  color: #5bdfff;
+  transform: scale(1.4);
+  text-decoration: none;
+  outline: none;
+}
+
+.projectbtn button a:hover {
+  text-decoration: none;
+  color: #5bdfff;
 }

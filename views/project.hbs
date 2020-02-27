@@ -9,16 +9,17 @@
 <br>
 
 <div class="projectdiv">
-<span><strong>Category</strong>: {{projectInfo.category}}</span>
+<span><strong>Category</strong>: <br>{{projectInfo.category}}</span>
 <br>
-<span><strong>Project Title</strong>: {{projectInfo.title}}</span>
+<span><strong>Project Title</strong>: <br> {{projectInfo.title}}</span>
 <br>
-<span><strong>Description</strong>: {{projectInfo.description}}</span>
+<span><strong>Description</strong>: <br>{{projectInfo.description}}</span>
 <br>
 <span><strong>Tagline</strong>: {{projectInfo.tagline}}</span>
-<br>
-<span><strong>Netlify Link</strong>: {{projectInfo.netlify}}</span>
-<br>
+
+</div>
+<div class="projectbtn">
+<button><a href="http://{{projectInfo.netlify}}" target="_blank">Try Now!</a></button>
 </div>
 <p>Likes: {{likeLength}}</p>
 

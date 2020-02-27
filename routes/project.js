@@ -84,16 +84,18 @@ router.get('/:projectId/edit', routeGuard, (req, res, next) => {
 });
 
 router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
-  const userId = req.user._id;
+  
   const projectId = req.params.projectId;
   const { title, description, tagline, category, netlify } = req.body;
 
-  console.log('User', req.body.category);
 
-  let profilePicture;
+  let photo;
+  
   if (req.file) {
-    profilePicture = req.file.url;
+    photo = req.file.url;
   }
+
+  console.log("this is the picture", photo)
 
   Project.findByIdAndUpdate(projectId, {
     ...(title ? { title } : {}),
@@ -101,11 +103,11 @@ router.post('/:projectId/edit', uploader.single('photo'), (req, res, next) => {
     ...(tagline ? { tagline } : {}),
     ...(category ? { category } : {}),
     ...(netlify ? { netlify } : {}),
-    ...(profilePicture ? { profilePicture } : {})
+    ...(photo ? { photo } : {})
   })
     .then(data => {
       console.log('end data:', data);
-      res.redirect(`/profile/${userId}`);
+      res.redirect(`/project/${projectId}`);
     })
     .catch(error => {
       next(error);

@@ -49,17 +49,23 @@ button {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 5px;
-  text-decoration: none
+  text-decoration: none;
+  border-style: none;
 }
 
 .navdiv a:hover {
   background-color: #5bdfff;
-  color: #f4f4f4;
+  filter: blur(0.5px);
+  color: white;
   text-decoration: none;
 }
 
 .navdiv form {
   margin-right: 15px;
+}
+
+.navdiv form:hover{
+  filter: blur(0.5px)
 }
 
 h1,
@@ -243,7 +249,8 @@ footer a, p{
 
 footer a:hover{
   text-decoration: none;
-  color: #f4f4f4
+  filter: blur(0.5px);
+  color: white;
 }
 
 // Home screen

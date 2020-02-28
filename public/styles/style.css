@@ -66,11 +66,10 @@ form {
 input,
 textarea,
 button,
-select,
 .btn {
   padding: 1em;
   border: 1px solid rgba(191, 191, 191, 0.5);
-  border-radius: 5px;
+  border-radius: 5;
   margin-bottom: 1em;
   font: inherit;
   color: inherit;
@@ -158,10 +157,27 @@ textarea {
   background-color: transparent;
   font-family: 'Lato', sans-serif; }
 
+footer {
+  display: flex;
+  background-color: #5bdfff;
+  justify-content: flex-end;
+  padding-top: 8px; }
+
+footer a, p {
+  color: white;
+  margin-right: 7px;
+  text-decoration: none; }
+
+footer a:hover {
+  text-decoration: none;
+  color: #f4f4f4; }
+
 .form-inline {
   display: flex;
   flex-flow: row wrap;
-  align-items: center; }
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; }
 
 .form-inline label {
   margin: 5px 2% 5px 0; }

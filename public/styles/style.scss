@@ -194,12 +194,36 @@ textarea {
   font-family: 'Lato', sans-serif;
 }
 
+
+
+//footer style 
+
+footer{
+  display: flex;
+  background-color: #5bdfff;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+footer a, p{
+  color: white;
+  margin-right: 7px; 
+  text-decoration: none
+}
+
+footer a:hover{
+  text-decoration: none;
+  color: #f4f4f4
+}
+
 // Home screen
 
 .form-inline {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-inline label {

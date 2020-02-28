@@ -14,7 +14,7 @@
       {{#if user}}
       <button><a class="link-1" href="/home">Home</a></button>
         <button><a class="link-1" href="/profile/{{user._id}}">{{user.name}}'s Profile</a></button>
-        <form class="mr-3" action="/authentication/sign-out" method="POST">
+        <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
         </form>
         {{else}}

@@ -6,7 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const Projects = require('./../models/project');
 
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'codeIRON' });
+  res.render('index', { title: 'IRONcode' });
 });
 
 router.get('/home', routeGuard, (req, res, next) => {

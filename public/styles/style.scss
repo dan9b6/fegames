@@ -80,6 +80,7 @@ form {
 input,
 textarea,
 button,
+select,
 .btn {
   padding: 1em;
   border: 1px solid $grey;
@@ -89,6 +90,10 @@ button,
   color: inherit;
   background-color: transparent;
   font-family: 'Lato', sans-serif;
+}
+
+select {
+  -webkit-appearance: none;
 }
 
 textarea {

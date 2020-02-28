@@ -167,6 +167,26 @@ textarea {
 
 .sign form > input {
   border-radius: 10px;
+  padding: 1em;
+  border: 1px solid $grey;
+  border-radius: 5;
+  margin-bottom: 1em;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  font-family: 'Lato', sans-serif;
+}
+
+.sign form > select {
+  border-radius: 10px;
+  padding: 1em;
+  border: 1px solid $grey;
+  border-radius: 5;
+  margin-bottom: 1em;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  font-family: 'Lato', sans-serif;
 }
 
 // Home screen

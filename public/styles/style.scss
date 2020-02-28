@@ -54,12 +54,17 @@ button {
 
 .navdiv a:hover {
   background-color: #5bdfff;
-  color: #f4f4f4;
+  filter: blur(0.5px);
+  color: white;
   text-decoration: none;
 }
 
 .navdiv form {
   margin-right: 15px;
+}
+
+.navdiv form:hover {
+  filter: blur(0.5px);
 }
 
 h1,
@@ -198,6 +203,52 @@ textarea {
   background-color: transparent;
   font-family: 'Lato', sans-serif;
 }
+//scroll bar
+
+// navbar blue: #5bdfff
+// general dark blue: #3dcaff
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5bdfff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3dcaff;
+}
+
+//footer style
+
+footer {
+  display: flex;
+  background-color: #5bdfff;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+footer a,
+p {
+  color: white;
+  margin-right: 7px;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: none;
+  filter: blur(0.5px);
+  color: white;
+}
 
 // Home screen
 
@@ -205,6 +256,8 @@ textarea {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  margin-left: 20%;
+  margin-right: auto;
 }
 
 .form-inline label {

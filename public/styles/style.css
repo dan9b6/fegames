@@ -76,6 +76,9 @@ button,
   background-color: transparent;
   font-family: 'Lato', sans-serif; }
 
+select {
+  -webkit-appearance: none; }
+
 textarea {
   min-height: 8em;
   resize: vertical; }
